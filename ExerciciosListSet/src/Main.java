@@ -1,3 +1,5 @@
+
+
 import java.util.*;
 
 public class Main {
@@ -61,5 +63,25 @@ public class Main {
         System.out.println(notas.isEmpty());
         System.out.println(notas2.isEmpty());
         System.out.println(notas3.isEmpty());
+
+        //Ordem Aleatoria
+        Set<Serie> minhasSeries = new HashSet<>(){{
+            add(new Serie("a","suspense",65));
+            add(new Serie("b","drama",70));
+            add(new Serie("c","terror",60));
+        }};
+        for (Serie serie : minhasSeries) System.out.println(serie.getNome() + "--"+ serie.getGenero() + "--"
+                + serie.getTempo());
+
+        // ordem natural TempoEpsodio
+        Set<Serie> minhasSeries2 = new TreeSet<>(minhasSeries);
+        System.out.println(minhasSeries2);
+
+        // Ordem Nome Genero e  Epsodio
+        Set<Serie> minhasSeries3 = new TreeSet<>( new comparatoNomeGeneroTempo());
+        minhasSeries3.addAll(minhasSeries);
+        for (Serie serie : minhasSeries3) System.out.println(serie.getNome() + "--"+ serie.getGenero() + "--"
+                + serie.getTempo());
+
     }
 }
